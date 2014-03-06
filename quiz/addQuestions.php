@@ -48,14 +48,14 @@ if(isset($_POST['desc'])){
 		if($isCorrect == "answer1"){
 		$sql2 = mysql_query("INSERT INTO answers (question_id, answer, correct) VALUES ('$lastId', '$answer1', '1')")or die(mysql_error());
 		mysql_query("INSERT INTO answers (question_id, answer, correct) VALUES ('$lastId', '$answer2', '0')")or die(mysql_error());
-		$msg = 'Thanks, your question has been added';
+		$msg = 'Frage ist drin';
 	  header('location: addQuestions.php?msg='.$msg.'');
 	exit();
 	}
 	if($isCorrect == "answer2"){
 		$sql2 = mysql_query("INSERT INTO answers (question_id, answer, correct) VALUES ('$lastId', '$answer2', '1')")or die(mysql_error());
 		mysql_query("INSERT INTO answers (question_id, answer, correct) VALUES ('$lastId', '$answer1', '0')")or die(mysql_error());
-		$msg = 'Thanks, your question has been added';
+		$msg = 'Frage ist drin';
 	  header('location: addQuestions.php?msg='.$msg.'');
 	exit();
 		}	
@@ -179,12 +179,12 @@ document.getElementById("resetBtn").innerHTML = "processing...";
   <div class="content" id="tf">
   	<h3>True or false</h3>
     	<form action="addQuestions.php" name="addQuestion" method="post">
-    <strong>Please type your new question here</strong>
+    <strong>Bitte Frage eintragen</strong>
     	<br />
     		<textarea id="tfDesc" name="desc" style="width:400px;height:95px;"></textarea>
     	  <br />
     	<br />
-    	<strong>Please select whether true or false is the correct answer</strong>
+    	<strong>Sag was richtg und falsch ist</strong>
     	<br />
             <input type="text" id="answer1" name="answer1" value="True" readonly>&nbsp;
               <label style="cursor:pointer; color:#06F;">
@@ -198,7 +198,7 @@ document.getElementById("resetBtn").innerHTML = "processing...";
     	  <br />
     	<br />
     	<input type="hidden" value="tf" name="type">
-    	<input type="submit" value="Add To Quiz">
+    	<input type="submit" value=" Quiz hinzufügen">
     </form>
  </div>
  <div class="content" id="mc">
@@ -242,7 +242,7 @@ document.getElementById("resetBtn").innerHTML = "processing...";
       <br />
     <br />
     <input type="hidden" value="mc" name="type">
-    <input type="submit" value="Add To Quiz">
+    <input type="submit" value="Quiz hinzufügen">
     </form>
  </div>
 </body>
