@@ -1,5 +1,13 @@
 <?php 
+session_start();
 
+    if(empty($_SESSION['user']))
+    {
+       header("Location: http://www.darkinet.de/ilearn/ilearn/login.php");
+
+
+        die("Redirecting to http://www.darkinet.de/ilearn/ilearn/login.php");
+    }
 $msg = "";
 if(isset($_GET['msg'])){
 	$msg = $_GET['msg'];
