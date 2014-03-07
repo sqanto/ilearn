@@ -1,4 +1,14 @@
 <?php
+session_start();
+
+    if(empty($_SESSION['user']))
+    {
+       header("Location: http://www.darkinet.de/ilearn/ilearn/login.php");
+
+
+        die("Redirecting to http://www.darkinet.de/ilearn/ilearn/login.php");
+    }
+
 
 if(isset($_POST['desc'])){
 	if(!isset($_POST['iscorrect']) || $_POST['iscorrect'] == ""){
@@ -66,7 +76,7 @@ if(isset($_POST['desc'])){
 		mysql_query("INSERT INTO answers (question_id, answer, correct) VALUES ('$lastId', '$answer2', '0')")or die(mysql_error());
 		mysql_query("INSERT INTO answers (question_id, answer, correct) VALUES ('$lastId', '$answer3', '0')")or die(mysql_error());
 		mysql_query("INSERT INTO answers (question_id, answer, correct) VALUES ('$lastId', '$answer4', '0')")or die(mysql_error());
-		$msg = 'Thanks, your question has been added';
+		$msg = 'DOne';
 	  header('location: addQuestions.php?msg='.$msg.'');
 	exit();
 	}
@@ -75,7 +85,7 @@ if(isset($_POST['desc'])){
 		mysql_query("INSERT INTO answers (question_id, answer, correct) VALUES ('$lastId', '$answer1', '0')")or die(mysql_error());
 		mysql_query("INSERT INTO answers (question_id, answer, correct) VALUES ('$lastId', '$answer3', '0')")or die(mysql_error());
 		mysql_query("INSERT INTO answers (question_id, answer, correct) VALUES ('$lastId', '$answer4', '0')")or die(mysql_error());
-		$msg = 'Thanks, your question has been added';
+		$msg = 'DOne';
 	  header('location: addQuestions.php?msg='.$msg.'');
 	exit();
 	}
@@ -84,7 +94,7 @@ if(isset($_POST['desc'])){
 		mysql_query("INSERT INTO answers (question_id, answer, correct) VALUES ('$lastId', '$answer1', '0')")or die(mysql_error());
 		mysql_query("INSERT INTO answers (question_id, answer, correct) VALUES ('$lastId', '$answer2', '0')")or die(mysql_error());
 		mysql_query("INSERT INTO answers (question_id, answer, correct) VALUES ('$lastId', '$answer4', '0')")or die(mysql_error());
-		$msg = 'Thanks, your question has been added';
+		$msg = 'DOne';
 	  header('location: addQuestions.php?msg='.$msg.'');
 	exit();
 	}
@@ -93,8 +103,11 @@ if(isset($_POST['desc'])){
 		mysql_query("INSERT INTO answers (question_id, answer, correct) VALUES ('$lastId', '$answer1', '0')")or die(mysql_error());
 		mysql_query("INSERT INTO answers (question_id, answer, correct) VALUES ('$lastId', '$answer2', '0')")or die(mysql_error());
 		mysql_query("INSERT INTO answers (question_id, answer, correct) VALUES ('$lastId', '$answer3', '0')")or die(mysql_error());
-		$msg = 'Thanks, your question has been added';
+		$msg = 'Done';
 	  header('location: addQuestions.php?msg='.$msg.'');
+
+
+
 	exit();
 		}
 	}
@@ -241,6 +254,16 @@ document.getElementById("resetBtn").innerHTML = "processing...";
         </label>
       <br />
     <br />
+   <strong>Bitte Kattegorie schreiben</strong>
+    <br />
+        <input type="text" id="kategorie" name="kategori">&nbsp;
+          <label style="cursor:pointer; color:#06F;">
+          <input type="radio" name="iscorrect" value="kategori">
+        </label>
+      <br />
+    <br />
+
+
     <input type="hidden" value="mc" name="type">
     <input type="submit" value="Quiz hinzufügen">
     </form>

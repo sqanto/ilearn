@@ -21,9 +21,11 @@
     // of the rows from the database table. 
     $query = " 
     SELECT 
-            id, 
-             
-        FROM `q-a`
+          
+            question,
+	    ranswer
+
+        FROM qkatalog
     "; 
      
     try 
@@ -42,12 +44,12 @@
     // Finally, we can retrieve all of the found rows into an array using fetchAll 
     $rows = $stmt->fetchAll(); 
 ?> 
-<h1>Memberlist</h1> 
+<h1>Fragekatalog</h1> 
 <table> 
     <tr> 
         <th>ID</th> 
-        <th>Username</th> 
-        <th>E-Mail Address</th> 
+        <th>Frage</th> 
+        <th>Richte Antwort</th> 
     </tr> 
     <?php foreach($rows as $row): ?> 
         <tr> 

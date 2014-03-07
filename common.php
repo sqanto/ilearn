@@ -1,10 +1,10 @@
 <?php 
 
     // These variables define the connection information for your MySQL database 
-    $username = "wall"; 
-    $password = "tor"; 
-    $host = "192.168.0.6"; 
-    $dbname = "learn"; 
+    $username = "ilearn"; 
+    $password = "btzeC3C5efUNUeEK"; 
+    $host = "www.darkinet.de"; 
+    $dbname = "ilearn"; 
 
     // UTF-8 is a character encoding scheme that allows you to conveniently store 
     // a wide varienty of special characters, like ¢ or €, in your database. 
