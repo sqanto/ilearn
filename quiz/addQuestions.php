@@ -21,6 +21,7 @@ if(isset($_POST['desc'])){
 	}
 	require_once("scripts/connect_db.php");
 	$question = $_POST['desc'];
+	$kategori2 =  $_POST['kategori2'];
 	$answer1 = $_POST['answer1'];
 	$answer2 = $_POST['answer2'];
 	$answer3 = $_POST['answer3'];
@@ -50,7 +51,7 @@ if(isset($_POST['desc'])){
 		exit();
 		}
 	}
-	$sql = mysql_query("INSERT INTO questions (question, type) VALUES ('$question', '$type')")or die(mysql_error());
+	$sql = mysql_query("INSERT INTO questions (question, type, kategorie) VALUES ('$question', '$type', '$kategori2')")or die(mysql_error());
 		$lastId = mysql_insert_id();
 		mysql_query("UPDATE questions SET question_id='$lastId' WHERE id='$lastId' LIMIT 1")or die(mysql_error());
 	//// Update answers based on which is correct //////////
@@ -254,11 +255,10 @@ document.getElementById("resetBtn").innerHTML = "processing...";
         </label>
       <br />
     <br />
-   <strong>Bitte Kattegorie schreiben</strong>
+   <strong>Bitte Kategorie schreiben</strong>
     <br />
-        <input type="text" id="kategorie" name="kategori">&nbsp;
+        <input type="text" id="kategorie1" name="kategori2">&nbsp;
           <label style="cursor:pointer; color:#06F;">
-          <input type="radio" name="iscorrect" value="kategori">
         </label>
       <br />
     <br />
